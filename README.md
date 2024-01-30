@@ -6,7 +6,6 @@ A simple firearms test at Ammunition.
 * Change Zone Settings & Locations
 * Change Target Popup Locations
 * Change Blip Settings & Locations
-* Configure the distance between each spot that gets dug up by a player (Client Sided, Not Server Sided)
 
 ## Updates for later maybe
 * More Optimizations.
