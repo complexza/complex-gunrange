@@ -24,6 +24,12 @@ Config.ZoneSettings = {
     rotation = 90 -- Heading Of Poly Zone
 }
 
+Config.DifficultySettings = { -- Less Time == Harder
+    easymodetime = 1000,
+    mediummodetime = 500,
+    hardmodetime = 250,
+}
+
 Config.TargetLocations = { -- Popup Locations for Targets.
     { x = 826.701, y = -2171.449 },
     { x = 824.588, y = -2171.393 },

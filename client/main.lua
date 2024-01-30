@@ -147,16 +147,18 @@ function startTest(difficultyLevel)
     PlaySoundFrontend(-1, "CHECKPOINT_PERFECT", "HUD_MINI_GAME_SOUNDSET", 0)
     Wait(1000)
 
-    TargetSpawn(821.5693, -2171.331, 29.45, 1, 100)
-    updateScore()
     local currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    T = 500
+
+    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, 100)
+    updateScore()
+
+    T = Config.DifficultySettings.easymodetime
     R = 100
     if difficultyLevel == 2 then 
-        T = 250
+        T = Config.DifficultySettings.mediummodetime
         R = 75
     elseif difficultyLevel == 3 then
-        T = 100
+        T = Config.DifficultySettings.hardmodetime
         R = 50
     end
     Debug('Timer Set ', T)
