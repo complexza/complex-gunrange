@@ -17,7 +17,7 @@ A simple firearms test at Ammunition.
 ```
 `qb-core > shared > items.lua (New Format)`
 ```lua
-gunrangereceipt               = { name = 'gunrangereceipt', label = 'Fists', weight = 1000, image = 'ticket.png', unique = true, useable = false, description = 'Test Results from Firing Range' },
+gunrangereceipt               = { name = 'gunrangereceipt', label = 'Firearms Test', weight = 1000, image = 'ticket.png', unique = true, useable = false, description = 'Test Results from Firing Range' },
 ```
 
 `qb/ps-inventory > html > js`
