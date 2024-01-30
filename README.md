@@ -19,6 +19,7 @@ A simple firearms test at Ammunition.
 * More Optimizations.
 * More Effects when doing the test.
 * More Customization
+* More Small Bug Fixes
 
 ## Original Idea / Snippets by Just Evy
 [](https://github.com/justevy/shootingrange)https://github.com/justevy/shootingrange
