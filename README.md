@@ -35,6 +35,7 @@ gunrangereceipt               = { name = 'gunrangereceipt', label = 'Firearms Te
 * Change Zone Settings & Locations
 * Change Target Popup Locations
 * Change Blip Settings & Locations
+* CHange Difficulty Settings
 
 ## Updates for later maybe
 * More Optimizations.
