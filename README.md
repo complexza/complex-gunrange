@@ -5,7 +5,7 @@
 * qb-core (Can be easily adapted to ox or qbx)
 
 ## Preview
--- To Be Added
+https://github.com/complexza/complex-gunrange/assets/74205343/dc4b3088-a46b-4f1b-b3ef-d90b3256dcd0
 
 ## Description
 A simple firearms test at Ammunition.
