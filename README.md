@@ -11,14 +11,17 @@ https://github.com/complexza/complex-gunrange/assets/74205343/dc4b3088-a46b-4f1b
 A simple firearms test at Ammunition.
 
 ## Installation
-* Add Item into your shared lua.
-Old Format
-```	['gunrangereceipt'] 				 = {['name'] = 'gunrangereceipt', 			  	 ['label'] = 'Firearms Range Receipt', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'ticket.png', 					['unique'] = true, 		['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Receipt from the your firearms test!'},```
-New Format
-```gunrangereceipt               = { name = 'gunrangereceipt', label = 'Fists', weight = 1000, image = 'ticket.png', unique = true, useable = false, description = 'Test Results from Firing Range' },```
+`qb-core > shared > items.lua (Old Format)`
+```lua
+['gunrangereceipt'] 				 = {['name'] = 'gunrangereceipt', 			  	 ['label'] = 'Firearms Range Receipt', 					['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'ticket.png', 					['unique'] = true, 		['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Receipt from the your firearms test!'},
+```
+`qb-core > shared > items.lua (New Format)`
+```lua
+gunrangereceipt               = { name = 'gunrangereceipt', label = 'Fists', weight = 1000, image = 'ticket.png', unique = true, useable = false, description = 'Test Results from Firing Range' },
+```
 
-* Add this into ps-inventory / qb-inventory js.
-```        
+`qb/ps-inventory > html > js`
+```js
 } else if (itemData.name == "gunrangereceipt") {
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html(
