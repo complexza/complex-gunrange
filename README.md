@@ -22,4 +22,5 @@ A simple firearms test at Ammunition.
 * More Small Bug Fixes
 
 ## Original Idea / Snippets by Just Evy
+* Used The Animation and Targeting Spawning Logic
 [](https://github.com/justevy/shootingrange)https://github.com/justevy/shootingrange
