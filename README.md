@@ -41,6 +41,7 @@ gunrangereceipt               = { name = 'gunrangereceipt', label = 'Firearms Te
 * More Effects when doing the test.
 * More Customization
 * More Small Bug Fixes
+* Rewrite the spawning logic
 
 ## Original Idea / Snippets by Just Evy
 * Used The Animation and Targeting Spawning Logic
