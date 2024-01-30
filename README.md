@@ -1,4 +1,9 @@
 # Gun Range Test
+
+## Dependencies
+* ox_lib
+* qb-core (Can be easily adapted to ox or qbx)
+
 ## Description
 A simple firearms test at Ammunition.
 
