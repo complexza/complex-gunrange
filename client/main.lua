@@ -45,51 +45,28 @@ local function TargetSpawn(x, y, z, a, v)
 
     lib.requestModel(model)
 
-    local obj = CreateObject(model, x, y, z, true, true, true)
+    obj = CreateObject(model, x, y, z, true, true, true)
     SetEntityProofs(obj, false, true, false, false, false, false, 0, false)
     SetEntityRotation(obj, GetEntityRotation(obj) + vector3(-90, 0.0, 0))
     PlaySoundFrontend(-1, "SHOOTING_RANGE_ROUND_OVER", "HUD_AWARDS", 1)
+    RotateEntity(obj, 90, 1)
 
-    local r = -90
-    while r ~= 0 do
-        SetEntityRotation(obj, GetEntityRotation(obj) + vector3(9, 0.0, 0))
-        r = r + 9
-        Wait(1)
-    end
-
-    DeleteEntity(obj)
-
-    Wait(1)
-
-    obj = CreateObject(model, x, y, z, true, true, true)
     local fin = 0
 
     while shot < a do
         Wait(0)
         fin = fin + 1
-        if IsPedShooting(cache.ped) then
-            Wait(100)
-            if fin > v or HasEntityBeenDamagedByWeapon(obj, 0, 2) then
-                PlaySoundFrontend(-1, "CONFIRM_BEEP", "HUD_MINI_GAME_SOUNDSET", 1)
-                shot = (fin > v) and (shot + 100) or (shot + 1)
-                totalScore = (fin > v and totalScore) or (totalScore + 1)
-                ClearEntityLastDamageEntity(obj)
-            else
-                PlaySoundFrontend(-1, "CONFIRM_BEEP", "HUD_MINI_GAME_SOUNDSET", 1)
-                shot = shot + 1
-            end
-        elseif fin > v then
+        if IsPedShooting(cache.ped) and (fin <= v or HasEntityBeenDamagedByWeapon(obj, 0, 2)) then
             PlaySoundFrontend(-1, "CONFIRM_BEEP", "HUD_MINI_GAME_SOUNDSET", 1)
-            shot = shot + 100
+            shot = shot + 1
+            totalScore = totalScore + (fin > v and 0 or 1)
+            ClearEntityLastDamageEntity(obj)
+        elseif fin > v then
+            shot = a
         end
     end
 
-    while r ~= -90 do
-        SetEntityRotation(obj, GetEntityRotation(obj) - vector3(5, 0.0, 0))
-        r = r - 5
-        Wait(1)
-    end
-
+    RotateEntity(obj, -90, -5)
     DeleteEntity(obj)
     SetModelAsNoLongerNeeded(model)
 end
@@ -152,91 +129,23 @@ function startTest(difficultyLevel)
     TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, 100)
     updateScore()
 
-    T = Config.DifficultySettings.easymodetime
-    R = 100
-    if difficultyLevel == 2 then 
-        T = Config.DifficultySettings.mediummodetime
-        R = 75
-    elseif difficultyLevel == 3 then
-        T = Config.DifficultySettings.hardmodetime
-        R = 50
-    end
+    local difficultySettings = {
+        {time = Config.DifficultySettings.easymodetime, reaction = 100, targets = 10},
+        {time = Config.DifficultySettings.mediummodetime, reaction = 75, targets = 15},
+        {time = Config.DifficultySettings.hardmodetime, reaction = 50, targets = 20}
+    }
+    local settings = difficultySettings[difficultyLevel] or difficultySettings[1]
+    T = settings.time
+    R = settings.reaction
     Debug('Timer Set ', T)
-    Wait(T)
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    Wait(T)
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    Wait(T)
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    Wait(T)
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    Wait(T)
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    Wait(T)
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    Wait(T)
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    Wait(T)
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    currentTarget = getRandomTargetLocation(Config.TargetLocations)
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    Wait(T)
-    TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
-    updateScore()
-    Wait(1000)
+
+    for i = 1, settings.targets do
+        local currentTarget = getRandomTargetLocation(Config.TargetLocations)
+        TargetSpawn(currentTarget.x, currentTarget.y, 29.45, 1, R)
+        updateScore()
+        Wait(T)
+    end
+
     finalScore()
 end
 
@@ -247,6 +156,15 @@ end
 
 function openDifficultyMenu()
     lib.showContext('difficulty_firearms_menu') 
+end
+
+function RotateEntity(entity, degrees, step)
+    local rotation = 0
+    while rotation ~= degrees do
+        SetEntityRotation(entity, GetEntityRotation(entity) + vector3(step, 0.0, 0))
+        rotation = rotation + step
+        Wait(1)
+    end
 end
 
 RegisterNetEvent("complex-gunrange:setInUse", function(boolean)
