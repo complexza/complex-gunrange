@@ -29,7 +29,7 @@ local function finalScore()
 
     FreezeEntityPosition(cache.ped, false)
 
-    TriggerServerEvent('complex-gunrange:server:setInUse', false)
+    TriggerServerEvent('complex-gunrange:server:setInUse')
 
     TriggerServerEvent('complex-gunrange:giveResultReceipt', totalScore)
 end
@@ -116,7 +116,7 @@ function startTest(difficultyLevel)
     local playerPed = cache.ped
     local timer = 2000
 
-    TriggerServerEvent('complex-gunrange:server:setInUse', true)
+    TriggerServerEvent('complex-gunrange:server:setInUse')
 
     DoScreenFadeOut(timer)
 
@@ -250,7 +250,7 @@ function openDifficultyMenu()
 end
 
 RegisterNetEvent("complex-gunrange:setInUse", function(boolean)
-    alreadyInUse = boolean
+    alreadyInUse = not alreadyInUse
     Debug('Firing Range in use set.', alreadyInUse)
 end)
 

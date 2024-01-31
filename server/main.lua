@@ -1,8 +1,8 @@
 local QBCore = exports['qb-core']:GetCoreObject()  -- Imports the QBCore Stuff
 
 -- Sets Range In Use
-RegisterNetEvent('complex-gunrange:server:setInUse', function(boolean)
-    TriggerClientEvent('complex-gunrange:setInUse', -1, boolean)
+RegisterNetEvent('complex-gunrange:server:setInUse', function()
+    TriggerClientEvent('complex-gunrange:setInUse', -1)
 end)
 
 -- Event to Give Results Receipt
