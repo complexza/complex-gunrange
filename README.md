@@ -25,7 +25,7 @@ gunrangereceipt               = { name = 'gunrangereceipt', label = 'Firearms Te
 } else if (itemData.name == "gunrangereceipt") {
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html(
-                '<p><strong>Paid by: </strong><span>' + itemData.info.citizenname + '</span></p>' +
+                '<p><strong>Completed by: </strong><span>' + itemData.info.citizenname + '</span></p>' +
                 '<p><strong>Final Score: </strong><span>' + itemData.info.score + '</span></p>' +
                 '<p><strong>Date Issued: </strong><span>' + itemData.info.date + '</span></p>'
 );
